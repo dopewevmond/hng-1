@@ -13,8 +13,8 @@ app.get('/api', (req, res) => {
       const date = new Date()
       const current_day = daynames[date.getDay()]
       const utc_time = date.toISOString()
-      const github_file_url = ''
-      const github_repo_url = ''
+      const github_file_url = 'https://github.com/dopewevmond/hng-1/blob/main/server.js'
+      const github_repo_url = 'https://github.com/dopewevmond/hng-1'
       res.json({
         slack_name,
         current_day,

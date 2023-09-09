@@ -29,7 +29,7 @@ app.get('/api', (req, res) => {
   }
 })
 
-const port = 8080;
+const port = 3000;
 
 app.listen(port, () => {
   console.log(`server listening on port ${port}`)

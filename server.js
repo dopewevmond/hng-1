@@ -10,9 +10,19 @@ app.get('/', (_req, res) => {
 app.get('/api', (req, res) => {
   try {
       const { slack_name, track } = req.query
-      const date = new Date()
-      const current_day = daynames[date.getDay()]
-      const utc_time = date.toISOString()
+      const now = new Date()
+
+      const addLeadingZero = (num) => (num < 10 ? `0${num}` : num);
+
+      const year = now.getFullYear();
+      const month = addLeadingZero(now.getMonth() + 1);
+      const day = addLeadingZero(now.getDate());
+      const hours = addLeadingZero(now.getHours());
+      const minutes = addLeadingZero(now.getMinutes());
+      const seconds = addLeadingZero(now.getSeconds());
+
+      const current_day = daynames[now.getDay()]
+      const utc_time = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
       const github_file_url = 'https://github.com/dopewevmond/hng-1/blob/main/server.js'
       const github_repo_url = 'https://github.com/dopewevmond/hng-1'
       res.json({
